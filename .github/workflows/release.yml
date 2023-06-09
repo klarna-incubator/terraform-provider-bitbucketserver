@@ -34,6 +34,7 @@ jobs:
         id: import_gpg
         with:
           gpg_private_key: ${{ secrets.TERRAFORM_REGISTRY_GPG_PRIVATE_KEY }}
+          passphrase: ""
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@f82d6c1c344bcacabba2c841718984797f664a6b # v4.2.0
         with:
