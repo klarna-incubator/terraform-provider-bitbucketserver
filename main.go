@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform/plugin"
-	"github.com/liamniou/terraform-provider-bitbucketserver/bitbucket"
+	"github.com/klarna-incubator/terraform-provider-bitbucketserver/bitbucket"
 )
 
 func main() {

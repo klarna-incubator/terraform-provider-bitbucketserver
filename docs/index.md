@@ -2,7 +2,7 @@
 
 [Bitbucket Server](https://www.atlassian.com/software/bitbucket) is the self-hosted version of Bitbucket.
 Whilst terraform provides a default bitbucket provider, this only works for _Bitbucket Cloud_ - this provider
-unlocks the power of terraform to manage your self-hosted Bitbucket Server instance. 
+unlocks the power of terraform to manage your self-hosted Bitbucket Server instance.
 
 ## Installation
 
@@ -16,7 +16,7 @@ terraform {
 
   required_providers {
     bitbucketserver = {
-      source  = "liamniou/bitbucketserver"
+      source  = "klarna-incubator/bitbucketserver"
     }
   }
 }
@@ -30,7 +30,7 @@ The following one-liner script will fetch the latest provider version and downlo
 
 ```bash
 $ mkdir -p ~/.terraform.d/plugins && \
-      curl -Ls https://api.github.com/repos/liamniou/terraform-provider-bitbucketserver/releases/latest \
+      curl -Ls https://api.github.com/repos/klarna-incubator/terraform-provider-bitbucketserver/releases/latest \
       | jq -r ".assets[] | select(.browser_download_url | contains(\"$(uname -s | tr A-Z a-z)\")) | select(.browser_download_url | contains(\"amd64\")) | .browser_download_url" \
       | xargs -n 1 curl -Lo ~/.terraform.d/plugins/terraform-provider-bitbucketserver.zip && \
       pushd ~/.terraform.d/plugins/ && \
@@ -44,9 +44,8 @@ $ mkdir -p ~/.terraform.d/plugins && \
 
 #### Install manually
 
-If you don't want to use the one-liner above, you can download a binary for your system from the [release page](https://github.com/liamniou/terraform-provider-bitbucketserver/releases),
+If you don't want to use the one-liner above, you can download a binary for your system from the [release page](https://github.com/klarna-incubator/terraform-provider-bitbucketserver/releases),
 then either place it at the root of your Terraform folder or in the Terraform plugin folder on your system.
-
 
 ## Configuration
 
@@ -69,9 +68,9 @@ Typically this is a user with `SYS_ADMIN` global permissions.
 
 You can also specify the provider configuration using the following env vars:
 
-* `BITBUCKET_SERVER`
-* `BITBUCKER_USERNAME`
-* `BITBUCKET_PASSWORD`
+- `BITBUCKET_SERVER`
+- `BITBUCKER_USERNAME`
+- `BITBUCKET_PASSWORD`
 
 > Note: The hcl provider configuration takes precedence over the environment variables.
 
