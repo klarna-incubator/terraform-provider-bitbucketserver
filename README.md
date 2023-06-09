@@ -1,14 +1,14 @@
 # Bitbucket Server Terraform Provider
 
-This repository is a fork of [liamnou/terraform-provider-bitbucketserver](https://github.com/liamnou/terraform-provider-bitbucketserver) so that Klarna would be able to independently contribute to this provider and publish the provider separately without conflict with the upstream.
+This repository is a fork of [liamniou/terraform-provider-bitbucketserver](https://github.com/liamniou/terraform-provider-bitbucketserver) so that Klarna would be able to independently contribute to this provider and publish the provider separately without conflict with the upstream.
 
-[![user guide](https://img.shields.io/badge/-user%20guide-blue)](https://registry.terraform.io/providers/liamniou/bitbucketserver/latest)
+[![user guide](https://img.shields.io/badge/-user%20guide-blue)](https://registry.terraform.io/providers/klarna-incubator/bitbucketserver/latest)
 
 This terraform provider allows management of **Bitbucket Server** resources. The bundled terraform bitbucket provider works only for Bitbucket Cloud.
 
 ## Using the provider
 
-See [User Guide](https://registry.terraform.io/providers/liamniou/bitbucketserver/latest) for details on all the provided data and resource types.
+See [User Guide](https://registry.terraform.io/providers/klarna-incubator/bitbucketserver/latest) for details on all the provided data and resource types.
 
 ### Example
 
@@ -36,10 +36,10 @@ resource "bitbucketserver_repository" "test" {
 
 ### Requirements
 
--	[Terraform](https://www.terraform.io/downloads.html) 0.12.x
--	[Go](https://golang.org/doc/install) 1.11+
-    - correctly setup [GOPATH](http://golang.org/doc/code.html#GOPATH
-    - add `$GOPATH/bin` to your `$PATH`
+- [Terraform](https://www.terraform.io/downloads.html) 0.12.x
+- [Go](https://golang.org/doc/install) 1.11+
+  - correctly setup [GOPATH](http://golang.org/doc/code.html#GOPATH
+  - add `$GOPATH/bin` to your `$PATH`
 - clone this repository to `$GOPATH/src/github.com/gavinbunney/terraform-provider-bitbucketserver`
 
 ### Building the provider
@@ -73,6 +73,7 @@ $ scripts/stop-docker-compose.sh
 ```
 
 #### Testing on MacOS
+
 If you try to use `make testacc-bitbucket` locally on MacOS, the command will fail. You can use [act](https://github.com/nektos/act) tool to run acceptance tests via Github actions locally:
 
 ```sh
@@ -80,6 +81,7 @@ $ act -j testacc -s DOCKERHUB_USERNAME=provide_username -s DOCKERHUB_TOKEN=provi
 ```
 
 ### Using the provider locally
+
 ```sh
 $ make build
 $ mkdir -p ~/.terraform.d/plugins/terraform.local/local/bitbucketserver/0.0.99/darwin_amd64/
@@ -87,6 +89,7 @@ $ cp ~/go/bin/terraform-provider-bitbucketserver ~/.terraform.d/plugins/terrafor
 ```
 
 Configure terraform to use the provider from local path:
+
 ```hcl
 terraform {
   required_providers {
